@@ -39,7 +39,6 @@ class Home extends Component {
 
   handleChangeQuestions = (value) => {
     const answeredQuestions = value;
-
     this.setState({ answeredQuestions });
   };
   render() {
@@ -75,10 +74,7 @@ class Home extends Component {
               md={4}
               lg={3}
             >
-              <Question
-                id={userQuestions[question].id}
-                isAnswred={answeredQuestions ? true : false}
-              />
+              <Question id={userQuestions[question].id} />
             </Grid>
           ))}
         </Grid>

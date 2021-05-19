@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleQuestionAnswer } from "../actions/shared";
-import { Paper, Typography } from "@material-ui/core";
 class QuestionsPage extends Component {
   state = { isAnswerd: false };
   handleChoice = (option) => {

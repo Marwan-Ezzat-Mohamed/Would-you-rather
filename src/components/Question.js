@@ -16,6 +16,7 @@ class Question extends Component {
           style={{ width: "auto", height: "280px" }}
         />
         <div className="card-body">
+          <div>{user.name} asks..</div>
           <div>Would you rather...</div>
           <div className="card-title">{question.optionOne.text} </div>
           <div>OR</div>
