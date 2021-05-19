@@ -25,7 +25,10 @@ class Login extends Component {
     console.log("users: ", users[user]);
 
     return (
-      <div className="App">
+      <div
+        className="card shadow-lg p-3 mb-5  rounded mt-6"
+        style={{ width: "40%", margin: "auto", marginTop: "100px" }}
+      >
         <h1 className="h3 mb-3 font-weight-normal">
           Please sign choose an account to login
         </h1>
@@ -44,7 +47,8 @@ class Login extends Component {
         </select>
 
         <button
-          className="btn btn-lg btn-primary btn-block"
+          className="btn  btn-primary mt-3 "
+          style={{ width: "20%", margin: "auto" }}
           onClick={this.handleSubmit}
         >
           Sign in

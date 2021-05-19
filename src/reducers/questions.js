@@ -3,7 +3,6 @@ import {
   ADD_QUESTION,
   ADD_ANSWER,
 } from "../actions/questions";
-import { saveQuestion } from "../utils/api";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -19,16 +18,15 @@ export default function users(state = {}, action) {
       };
 
     case ADD_ANSWER:
-      const votes = state[action.qid][action.answer].votes.concat([
-        action.authedUser,
-      ]);
       return {
         ...state,
         [action.qid]: {
           ...state[action.qid],
           [action.answer]: {
             ...state[action.qid][action.answer],
-            votes,
+            votes: state[action.qid][action.answer].votes.concat([
+              action.authedUser,
+            ]),
           },
         },
       };

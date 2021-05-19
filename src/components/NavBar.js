@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { Link } from "react-router-dom";
-import { handleAddQuestion } from "./../actions/questions";
 import { removeAuthedUser } from "./../actions/authedUser";
 class NavBar extends Component {
   state = {};
@@ -30,16 +28,16 @@ class NavBar extends Component {
             </li>
             <li className="nav-item">
               <Link to="/add" className="nav-link">
-                Add question
+                Add poll
               </Link>
             </li>
             <li className="nav-item">
-              <a
+              <p
                 onClick={() => dispatch(removeAuthedUser())}
                 className="nav-link"
               >
                 logout
-              </a>
+              </p>
             </li>
           </ul>
         </div>

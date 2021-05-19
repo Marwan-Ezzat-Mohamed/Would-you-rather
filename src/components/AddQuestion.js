@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import {  TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { connect } from "react-redux";
 import { handleAddQuestion } from "../actions/questions";
-import { withRouter, Redirect } from "react-router";
+import { withRouter } from "react-router";
 
 class AddQuestion extends Component {
   state = { optionOne: "", optionTwo: "" };
@@ -16,7 +16,6 @@ class AddQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hi");
     const { dispatch, authedUser } = this.props;
     if (!this.state.optionOne || !this.state.optionTwo) {
       return alert("Please fill all the fields");
@@ -26,6 +25,7 @@ class AddQuestion extends Component {
     );
 
     alert("question added!");
+    return this.props.history.push("/");
   };
   render() {
     return (
@@ -38,7 +38,8 @@ class AddQuestion extends Component {
             backgroundColor: "#F4F4F8",
           }}
         >
-          <div>Would you rather...</div>
+          <div style={{ margin: "auto" }}>Add new poll</div>
+          <div className="mt-4 mb-3">Would you rather...</div>
           <TextField
             name="optionOne"
             fullWidth

@@ -4,13 +4,13 @@ import { handleQuestionAnswer } from "../actions/shared";
 class QuestionsPage extends Component {
   state = { isAnswerd: false };
   handleChoice = (option) => {
-    const { dispatch, authedUser, questions, id } = this.props;
+    const { dispatch, authedUser, id } = this.props;
     dispatch(handleQuestionAnswer(authedUser, id, option));
     this.setState({ isAnswerd: true });
   };
 
   isQuestionAnswerd = () => {
-    const { questions, users, id, authedUser } = this.props;
+    const { users, id, authedUser } = this.props;
     const user = users[authedUser];
     const userAnswers = Object.keys(user.answers);
     const isAnswerd = userAnswers.find((e) => e === id) ? true : false;
@@ -69,6 +69,7 @@ class QuestionsPage extends Component {
       (question["optionTwo"].votes.length / totalUsers) *
       100
     ).toFixed(1);
+    console.log(optionOneVotePercentage);
 
     if (!question) return <h1> Question with the given id was not found</h1>;
     const user = users[questions[id].author];
@@ -77,7 +78,7 @@ class QuestionsPage extends Component {
     return (
       <div
         className="card shadow-lg p-3 mb-5  rounded mt-3"
-        style={{ maxWidth: "30%", margin: "auto", backgroundColor: "#F4F4F8" }}
+        style={{ maxWidth: "32%", margin: "auto", backgroundColor: "#F4F4F8" }}
       >
         <div style={{ margin: "auto" }}>{user.name}</div>
         <img
@@ -88,25 +89,33 @@ class QuestionsPage extends Component {
         />
         <div className="card-body" style={{ margin: "auto" }}>
           <div>Would you rather...</div>
-          <div className="mt-3" style={{color:"#531CB3"}}>your answer: {userAnswer}</div>
+          <div className="mt-3" style={{ color: "#531CB3" }}>
+            your answer: {userAnswer}
+          </div>
           <div className="mt-3" style={{ color: "#009FB7" }}>
             {" "}
             {optionOneVotePercentage}% choose {question.optionOne.text}
           </div>
           <div> {question["optionOne"].votes.length} votes</div>
           <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              style={{
-                padding: 6,
-                backgroundColor: "#FE4A49",
-                border: "none",
-                color: "black",
-                borderRadius: "20px",
-                width: `${optionOneVotePercentage}%`,
-              }}
-            ></div>
+            {optionOneVotePercentage > 0 ? (
+              <div
+                className="progress-bar"
+                role="progressbar"
+                style={{
+                  padding: 6,
+
+                  backgroundColor: "#FE4A49",
+                  border: "none",
+                  color: "black",
+                  borderRadius: "20px",
+
+                  width: `${optionOneVotePercentage}%`,
+                }}
+              ></div>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className="mt-3" style={{ color: "#009FB7" }}>
@@ -115,20 +124,24 @@ class QuestionsPage extends Component {
           </div>
           <div> {question["optionTwo"].votes.length} votes</div>
           <div className="progress">
-            <div
-              className="progress-bar"
-              role="progressbar"
-              style={{
-                padding: 6,
-                backgroundColor: "#FE4A49",
-                border: "none",
-                color: "black",
-                borderRadius: "20px",
-                width: `${optionTwoVotePercentage}%`,
-              }}
-            ></div>
+            {optionTwoVotePercentage > 0 ? (
+              <div
+                className="progress-bar"
+                role="progressbar"
+                style={{
+                  padding: 6,
+                  backgroundColor: "#FE4A49",
+                  border: "none",
+                  color: "black",
+                  borderRadius: "20px",
+
+                  width: `${optionTwoVotePercentage}%`,
+                }}
+              ></div>
+            ) : (
+              ""
+            )}
           </div>
-          
         </div>
       </div>
     );

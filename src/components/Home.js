@@ -50,7 +50,7 @@ class Home extends Component {
       <div style={{ padding: "3%" }}>
         <button
           style={{ margin: "1%" }}
-          className="btn btn-warning"
+          className="btn btn-primary"
           onClick={() => this.handleChangeQuestions(false)}
           autoFocus={answeredQuestions ? false : true}
         >
@@ -58,7 +58,7 @@ class Home extends Component {
         </button>
         <button
           style={{ margin: "1%" }}
-          className="btn btn-primary"
+          className="btn btn-warning"
           onClick={() => this.handleChangeQuestions(true)}
           autoFocus={answeredQuestions ? true : false}
         >

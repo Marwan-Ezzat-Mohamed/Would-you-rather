@@ -7,6 +7,7 @@ import "./index.css";
 import App from "./App";
 import middleware from "./middleware";
 
+
 const store = createStore(reducer, middleware);
 ReactDOM.render(
   <Provider store={store}>
