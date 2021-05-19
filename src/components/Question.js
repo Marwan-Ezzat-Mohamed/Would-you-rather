@@ -9,14 +9,20 @@ class Question extends Component {
     const user = users[questions[id].author];
     return (
       <div className="card shadow-lg p-3 mb-5 bg-white rounded">
-        <img className="card-img-top" src={user.avatarURL} alt={`  ${user} `} />
+        <img
+          className="card-img-top"
+          src={user.avatarURL}
+          alt={`  ${user} `}
+          style={{ width: "auto", height: "280px" }}
+        />
         <div className="card-body">
+          <div>Would you rather...</div>
           <div className="card-title">{question.optionOne.text} </div>
           <div>OR</div>
           <div className="card-title">{question.optionTwo.text} </div>
 
           <Link to={`/question/${id}`}>
-            <button className="btn btn-primary text-center">{"Choose"}</button>
+            <button className="btn btn-primary text-center">Choose</button>
           </Link>
         </div>
       </div>

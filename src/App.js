@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter,Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
 
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
-import Home from './components/Home';
+import Home from "./components/Home";
+import QuestionsPage from "./components/QuestionPage";
+import AddQuestion from "./components/AddQuestion";
+import LeaderBoard from "./components/LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -20,10 +23,10 @@ class App extends Component {
           <BrowserRouter>
             <NavBar />
             <Route path="/" exact component={Home} />
-              {/* <Route path="/questions/:id" exact component={AnswerQuestion} />
-              <Route path="/add" exact component={AddQuestion} />
-              <Route path="/leaderboard" exact component={Leaderboard} />
-              <Route path="/login" exact component={Login} /> */}
+            <Route path="/question/:id" exact component={QuestionsPage} />
+            <Route path="/add" exact component={AddQuestion} />
+            <Route path="/leaderboard" exact component={LeaderBoard} />
+            {/* <Route path="/login" exact component={Login} /> */}
           </BrowserRouter>
         ) : (
           <Login />

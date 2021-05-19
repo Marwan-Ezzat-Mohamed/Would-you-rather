@@ -2,7 +2,8 @@ let users = {
   sarahedo: {
     id: "sarahedo",
     name: "Sarah Edo",
-    avatarURL: "https://static.remove.bg/remove-bg-web/a72f919da581145bc8a52ac0c5d21f5c4741f367/assets/start_remove-79a4598a05a77ca999df1dcb434160994b6fde2c3e9101984fb1be0f16d0a74e.png",
+    avatarURL:
+      "https://static.remove.bg/remove-bg-web/a72f919da581145bc8a52ac0c5d21f5c4741f367/assets/start_remove-79a4598a05a77ca999df1dcb434160994b6fde2c3e9101984fb1be0f16d0a74e.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -14,7 +15,8 @@ let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
-    avatarURL: "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.6435-9/70169554_521663881926206_2669728869212225536_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=qsFLpzyAckAAX-5f9i-&_nc_oc=AQkQLSZoB5vA3yNf8AIRFqRlak0L3Bfgj4IvIooSsvsz9KW_0Ajh3i6PBtxGG0rzpkA&_nc_ht=scontent-hbe1-1.xx&oh=8c18d3e6cf3c890e4b2ef3e6f28db6bc&oe=60C86A28",
+    avatarURL:
+      "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.6435-9/70169554_521663881926206_2669728869212225536_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=qsFLpzyAckAAX-5f9i-&_nc_oc=AQkQLSZoB5vA3yNf8AIRFqRlak0L3Bfgj4IvIooSsvsz9KW_0Ajh3i6PBtxGG0rzpkA&_nc_ht=scontent-hbe1-1.xx&oh=8c18d3e6cf3c890e4b2ef3e6f28db6bc&oe=60C86A28",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -24,7 +26,8 @@ let users = {
   johndoe: {
     id: "johndoe",
     name: "John Doe",
-    avatarURL: "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.6435-9/70169554_521663881926206_2669728869212225536_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=qsFLpzyAckAAX-5f9i-&_nc_oc=AQkQLSZoB5vA3yNf8AIRFqRlak0L3Bfgj4IvIooSsvsz9KW_0Ajh3i6PBtxGG0rzpkA&_nc_ht=scontent-hbe1-1.xx&oh=8c18d3e6cf3c890e4b2ef3e6f28db6bc&oe=60C86A28",
+    avatarURL:
+      "https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",

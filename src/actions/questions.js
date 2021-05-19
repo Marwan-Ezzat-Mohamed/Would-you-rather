@@ -29,19 +29,15 @@ export function addQuestion(question) {
   };
 }
 
-export function handleAddQuestion(authedUser, optionOne, optionTwo) {
-  console.log(authedUser);
-  console.log(optionOne);
-  console.log(optionTwo);
-
+export function handleAddQuestion(author, optionOneText, optionTwoText) {
   return (dispatch) => {
     return saveQuestion({
-      author: authedUser,
-      optionOneText: optionOne,
-      optionTwoText: optionTwo,
+      author,
+      optionOneText,
+      optionTwoText,
     }).then((question) => {
       dispatch(addQuestion(question));
-      dispatch(userQuestionAdded(authedUser, question.id));
+      dispatch(userQuestionAdded(author, question.id));
     });
   };
 }

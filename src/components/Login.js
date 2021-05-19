@@ -30,13 +30,16 @@ class Login extends Component {
           Please sign choose an account to login
         </h1>
         <select
-          classNmae="form-select"
+          className="form-select"
           aria-label="Default select example"
           onChange={this.handleChange}
+          defaultValue="default"
         >
-          <option selected>Choose a user</option>
+          <option value="default">Choose a user</option>
           {Object.keys(users).map((user) => (
-            <option value={user}>{user}</option>
+            <option key={users[user].id} value={user}>
+              {user}
+            </option>
           ))}
         </select>
 

@@ -1,6 +1,7 @@
 import { getInitialData } from "../utils/api";
-import { receiveUsers } from "./users";
-import { receiveQuestions } from "./questions";
+import { addUserAnswer, receiveUsers } from "./users";
+import { addAnswer, receiveQuestions } from "./questions";
+import { saveQuestionAnswer } from "../utils/api";
 
 export function handleInitialData() {
   return (dispatch) => {
@@ -11,11 +12,12 @@ export function handleInitialData() {
   };
 }
 
-// export function handleAnswerQuestion(authedUser, qid, answer) {
-//   console.log("this is the answer", answer);
-//   return (dispatch) => {
-//     dispatch(addAnswer(authedUser, qid, answer));
-//     dispatch(addUserAnswer(authedUser, qid, answer));
-//     return saveQuestionAnswer(authedUser, qid, answer);
-//   };
-// }
+export function handleQuestionAnswer(authedUser, qid, answer) {
+  return (dispatch) => {
+    return saveQuestionAnswer(authedUser, qid, answer).then(() => {
+      //console.log(authedUser, qid, answer);
+      dispatch(addAnswer(authedUser, qid, answer));
+      dispatch(addUserAnswer(authedUser, qid, answer));
+    });
+  };
+}

@@ -4,7 +4,7 @@ import Question from "./Question";
 import Grid from "@material-ui/core/Grid";
 class Home extends Component {
   state = {
-    answeredQuestionsChosen: true,
+    answeredQuestions: false,
   };
 
   getUserQuestions = (authedUser, questions, users) => {
@@ -32,40 +32,38 @@ class Home extends Component {
     unAnsweredQuestions = unAnsweredQuestions.sort(
       (a, b) => b.timestamp - a.timestamp
     );
-    return this.state.answeredQuestionsChosen
+    return this.state.answeredQuestions
       ? answeredQuestions
       : unAnsweredQuestions;
   };
 
   handleChangeQuestions = (value) => {
-    const answeredQuestionsChosen = value;
+    const answeredQuestions = value;
 
-    this.setState({ answeredQuestionsChosen });
+    this.setState({ answeredQuestions });
   };
   render() {
     const { authedUser, questions, users } = this.props;
-    const userQuestions = this.getUserQuestions(
-      authedUser,
-      questions,
-      users
-    );
+    const { answeredQuestions } = this.state;
+    const userQuestions = this.getUserQuestions(authedUser, questions, users);
 
     return (
       <div style={{ padding: "3%" }}>
         <button
           style={{ margin: "1%" }}
-          className="btn btn-primary"
-          onClick={() => this.handleChangeQuestions(true)}
-          autoFocus
+          className="btn btn-warning"
+          onClick={() => this.handleChangeQuestions(false)}
+          autoFocus={answeredQuestions ? false : true}
         >
-          Answered questions
+          unAnswered questions
         </button>
         <button
           style={{ margin: "1%" }}
-          className="btn btn-warning"
-          onClick={() => this.handleChangeQuestions(false)}
+          className="btn btn-primary"
+          onClick={() => this.handleChangeQuestions(true)}
+          autoFocus={answeredQuestions ? true : false}
         >
-          unAnswered questions
+          Answered questions
         </button>
         <Grid container justify="center" spacing={4}>
           {Object.keys(userQuestions).map((question) => (
@@ -77,7 +75,10 @@ class Home extends Component {
               md={4}
               lg={3}
             >
-              <Question id={userQuestions[question].id} />
+              <Question
+                id={userQuestions[question].id}
+                isAnswred={answeredQuestions ? true : false}
+              />
             </Grid>
           ))}
         </Grid>
