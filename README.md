@@ -5,6 +5,7 @@
 ### Description
 
 the project is a simple would you rather game built using react-redux
+user must be logged in to play
 
 ### Prerequisites
 
