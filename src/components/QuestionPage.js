@@ -10,7 +10,8 @@ class QuestionsPage extends Component {
   };
 
   isQuestionAnswerd = () => {
-    const { users, id, authedUser } = this.props;
+    const { users, authedUser } = this.props;
+    const id = this.props.match.params.id;
     const user = users[authedUser];
     const userAnswers = Object.keys(user.answers);
     const isAnswerd = userAnswers.find((e) => e === id) ? true : false;
@@ -22,7 +23,8 @@ class QuestionsPage extends Component {
   }
 
   renderUnAnswredQuestion = () => {
-    const { questions, users, id } = this.props;
+    const { questions, users } = this.props;
+    const id = this.props.match.params.id;
     const question = questions[id];
     if (!question) return <h1> Question with the given id was not found</h1>;
     const user = users[questions[id].author];
@@ -58,22 +60,34 @@ class QuestionsPage extends Component {
     );
   };
   renderAnswredQuestion = () => {
-    const { questions, users, id } = this.props;
+    const { questions, users, authedUser } = this.props;
+    const id = this.props.match.params.id;
     const totalUsers = Object.keys(users).length;
     const question = questions[id];
+    const totalVotes =
+      question["optionOne"].votes.length + question["optionTwo"].votes.length;
     const optionOneVotePercentage = (
-      (question["optionOne"].votes.length / totalUsers) *
+      (question["optionOne"].votes.length / totalVotes) *
       100
     ).toFixed(1);
     const optionTwoVotePercentage = (
-      (question["optionTwo"].votes.length / totalUsers) *
+      (question["optionTwo"].votes.length / totalVotes) *
       100
     ).toFixed(1);
     console.log(optionOneVotePercentage);
 
     if (!question) return <h1> Question with the given id was not found</h1>;
     const user = users[questions[id].author];
-    const userAnswer = questions[id][user.answers[id]].text;
+    let option = "";
+    question.optionOne.votes.forEach((user) => {
+      console.log(user);
+      if (user === authedUser) option = "optionOne";
+    });
+    question.optionTwo.votes.forEach((user) => {
+      if (user === authedUser) option = "optionTwo";
+    });
+
+    const userAnswer = option;
 
     return (
       <div
@@ -148,6 +162,7 @@ class QuestionsPage extends Component {
   };
 
   render() {
+    console.log(this.props);
     return this.state.isAnswerd
       ? this.renderAnswredQuestion()
       : this.renderUnAnswredQuestion();

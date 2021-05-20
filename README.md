@@ -2,6 +2,10 @@
 
 # Would You Rather
 
+### Description
+
+the project is a simple would you rather game built using react-redux
+
 ### Prerequisites
 
 You need `yarn` or `npm` installed on your computer to run this project.
