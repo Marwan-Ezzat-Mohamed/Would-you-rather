@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route,Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
 import LoadingBar from "react-redux-loading-bar";
@@ -33,6 +33,7 @@ class App extends Component {
               <Route path="/leaderboard" exact component={LeaderBoard} />
               <Route path="/login" exact component={Login} />
               <Route path="/not-found" exact component={NotFound} />
+              <Route render={() => (<Redirect to="/not-found" />)}/>
             </Switch>
           </BrowserRouter>
         ) : (
