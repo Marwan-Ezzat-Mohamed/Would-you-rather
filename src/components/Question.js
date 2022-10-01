@@ -10,7 +10,7 @@ const Question = (props) => {
       <img
         className="card-img-top"
         src={user.avatarURL}
-        alt={`  ${user} `}
+        alt={`  ${user.name} image`}
         style={{ width: "auto", height: "280px" }}
       />
       <div className="card-body">
