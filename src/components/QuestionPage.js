@@ -76,7 +76,7 @@ class QuestionsPage extends Component {
 
     if (!question) return <h1> Question with the given id was not found</h1>;
     const user = users[questions[id].author];
-    const userAnswer = questions[id][user.answers[id]].text;
+    const userAnswer = questions[id][user.answers[id]]?.text ?? "";
 
     return (
       <div
